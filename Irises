@@ -1,0 +1,11 @@
+library(dplyr)
+mydata <- read.csv("iris.csv")
+mysubdata <- select(mydata, Sepal.Length, Sepal.Width, Petal.Length, Petal.Width, Species)
+mysubdata <- mysubdata[c(1,2,3,4)]
+mymatrix <- data.matrix(mysubdata)
+mymatrixtrans <- t(mymatrix)
+barplot(mymatrixtrans,
+        xlab="Iris samples",
+        col=c("blue","red","green","purple"))
+legend("topleft",cex=0.5,c("Sepal length","Sepal width","Petal length","Petal width"),
+       fill=c("blue","red","green","purple"))
